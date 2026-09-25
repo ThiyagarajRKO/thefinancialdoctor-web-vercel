@@ -1,0 +1,10 @@
+<!--
+Photo credits — voluntary courtesy, NOT a license requirement.
+All images below are CC0 / Public Domain / attribution-free; none of this
+needs to appear on the rendered page. Keep it here in the source as a
+thank-you to the creators. Do not surface it as visible on-site attribution.
+
+portrait-businessman-1.jpg: "Businessman Thinking" by Burst (stocksnap, cc0 1.0) — https://stocksnap.io/photo/businessman-thinking-TGG4JHNHB8
+portrait-businessman-2.jpg: "Portrait James Petrillo his office" by libraryofcongress (rawpixel, cc0 1.0) — https://www.rawpixel.com/image/6736549/image-people-art-vintage
+portrait-businessman-3.jpg: "Joseph S. Frelinghuysen, half-length portrait" by libraryofcongress (rawpixel, cc0 1.0) — https://www.rawpixel.com/image/7007467/photo-image-papers-people-vintage
+-->
