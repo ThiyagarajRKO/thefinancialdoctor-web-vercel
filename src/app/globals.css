@@ -495,13 +495,6 @@ button { font: inherit; }
 .expect { display: grid; gap: 14px; margin-top: 32px; }
 .expect li { display: grid; grid-template-columns: 32px 1fr; gap: 12px; color: var(--muted); align-items: start; }
 .expect span { width: 28px; height: 28px; border-radius: 999px; background: var(--primary-container); color: var(--on-primary-container); display: grid; place-items: center; font-size: 0.75rem; font-weight: 500; }
-.calendly { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-xl); overflow: hidden; min-height: 720px; box-shadow: var(--shadow-1); }
-.calendly iframe { display: block; border: 0; width: 100%; height: 720px; }
-.calendly-facade { min-height: 672px; display: grid; place-content: center; justify-items: center; gap: 10px; text-align: center; padding: 40px 24px; color: var(--muted); background: var(--surface-low); }
-.calendly-facade-title { font-size: 1.75rem; color: var(--text); }
-.calendly-facade .btn { margin-top: 12px; }
-.calendly-fallback { padding: 14px 20px; font-size: 0.875rem; color: var(--muted); border-top: 1px solid var(--border); }
-.calendly-fallback a { color: var(--primary); }
 
 .legal-note { background: var(--surface); border-radius: var(--r-md); padding: 16px 20px; font-size: 0.9375rem; }
 
@@ -619,7 +612,6 @@ body:has(.hero-light) .mobile-panel a:not(.btn) { color: var(--text); }
 .prose h2,
 .prose h3,
 .letter blockquote,
-.calendly-facade-title,
 .viz-head p {
   font-family: var(--heading);
 }
@@ -674,3 +666,85 @@ body { font-family: var(--sans); font-feature-settings: "cv11", "ss01"; }
 /* Home hero screenshot image */
 .devices-shot { display: block; width: 100%; height: auto; }
 @media (min-width: 1024px) { .devices-shot { width: 112%; max-width: none; } }
+
+
+/* ---------- Booking card: branded header + Calendly date and time picker ---------- */
+.booking { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-xl); overflow: hidden; box-shadow: 0 30px 60px -36px rgba(6, 41, 37, 0.35); }
+.booking-head {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 14px 16px;
+  padding: 20px 24px;
+  background: radial-gradient(60% 120% at 100% 0%, rgba(158, 230, 198, 0.18), transparent 70%), var(--ink);
+  color: var(--on-ink);
+}
+.booking-av { flex: none; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: var(--mint); color: var(--ink); font-family: var(--display); font-weight: 600; }
+.booking-who { flex: 1; min-width: 160px; }
+.booking-title { font-family: var(--heading); font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; }
+.booking-sub { color: var(--on-ink-muted); font-size: 0.9375rem; }
+.booking-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.booking-chips li { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; font-size: 0.8125rem; font-weight: 500; color: var(--on-ink); background: rgba(241, 247, 245, 0.08); box-shadow: inset 0 0 0 1px rgba(158, 230, 198, 0.22); }
+.booking-chips svg { color: var(--mint); }
+.booking-body { background: var(--bg); }
+.booking-frame { display: block; width: 100%; height: 660px; border: 0; }
+@media (max-width: 700px) { .booking-frame { height: 920px; } }
+.booking-facade { min-height: 520px; display: grid; place-content: center; justify-items: center; gap: 10px; padding: 48px 24px; text-align: center; color: var(--muted); background: radial-gradient(60% 60% at 50% 40%, var(--surface), var(--bg) 70%); }
+.booking-facade-title { font-size: 1.625rem; color: var(--text); }
+.booking-facade .btn { margin-top: 14px; }
+.booking-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 14px 24px; border-top: 1px solid var(--border); font-size: 0.8125rem; color: var(--muted); background: var(--surface-low); }
+.booking-foot svg { color: var(--primary); }
+.booking-foot a { margin-left: auto; color: var(--primary); font-weight: 500; text-decoration: none; }
+.booking-foot a:hover { text-decoration: underline; }
+
+/* ---------- Contact page: booking card inside the hero ---------- */
+.contact-hero-grid { display: grid; gap: clamp(36px, 5vw, 56px); align-items: start; }
+@media (min-width: 1080px) { .contact-hero-grid { grid-template-columns: 0.82fr 1.18fr; } }
+.contact-hero h1 { font-size: clamp(2.2rem, 4vw, 3.4rem); max-width: 14ch; }
+.contact-hero .expect { margin-top: 28px; }
+.contact-hero .expect li { color: var(--on-ink-muted); }
+.contact-hero .expect span { background: rgba(158, 230, 198, 0.14); color: var(--mint); }
+.contact-hero .contact-list { margin-top: 28px; grid-template-columns: 1fr 1fr; gap: 8px; }
+@media (max-width: 560px) { .contact-hero .contact-list { grid-template-columns: 1fr; } }
+.contact-hero .contact-list li { background: rgba(241, 247, 245, 0.05); box-shadow: inset 0 0 0 1px rgba(241, 247, 245, 0.08); align-items: start; }
+.contact-hero .contact-list .ci { background: rgba(158, 230, 198, 0.14); color: var(--mint); }
+.contact-hero .contact-list p:first-child { color: var(--on-ink-muted); }
+.contact-hero .contact-list a { color: var(--mint); }
+.contact-hero .contact-list span:not(.ci) { color: var(--on-ink); font-size: 0.9375rem; }
+.contact-hero .booking { box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.6); border-color: transparent; }
+.contact-hero .contact-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 560px) { .contact-hero .contact-list { grid-template-columns: minmax(0, 1fr); } }
+.contact-hero .contact-list a, .contact-hero .contact-list span:not(.ci) { overflow-wrap: anywhere; }
+.contact-hero .booking { border: 0; }
+
+/* Loader sits behind the iframe and shows until Calendly paints over it */
+.booking-body { position: relative; }
+.booking-body:has(.booking-frame)::before {
+  content: "Loading available times";
+  position: absolute; inset: 0; z-index: 0;
+  display: grid; place-items: center;
+  color: var(--muted); font-size: 0.9375rem;
+  background: radial-gradient(50% 40% at 50% 45%, var(--surface), var(--bg) 70%);
+}
+.booking-frame { position: relative; z-index: 1; background: transparent; }
+@keyframes pulse-soft { 50% { opacity: 0.45; } }
+@media (prefers-reduced-motion: no-preference) {
+  .booking-body:has(.booking-frame)::before { animation: pulse-soft 1.6s ease-in-out infinite; }
+}
+.contact-hero .contact-list { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+.contact-hero .contact-list li { grid-template-columns: 36px 1fr; gap: 12px; padding: 10px 14px; align-items: center; }
+.contact-hero .contact-list .ci { width: 36px; height: 36px; }
+.contact-hero .contact-list li > div { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; }
+.contact-hero .contact-list p:first-child { min-width: 52px; }
+.contact-hero .contact-list a, .contact-hero .contact-list span:not(.ci) { overflow-wrap: normal; }
+.contact-hero .booking { box-shadow: 0 0 0 1px rgba(158, 230, 198, 0.22), 0 40px 80px -30px rgba(0, 0, 0, 0.6); }
+.booking .btn-primary { background: var(--primary); color: var(--on-primary); }
+@media (hover: hover) and (pointer: fine) { .booking .btn-primary:hover { background: var(--primary-hover); } }
+
+/* Compact booking card */
+.booking-head { padding: 16px 20px; gap: 10px 14px; }
+.booking-av { width: 42px; height: 42px; }
+.booking-title { font-size: 1.125rem; }
+.booking-chips li { padding: 5px 10px; }
+.booking-frame { height: 560px; }
+@media (max-width: 700px) { .booking-frame { height: 760px; } }
+.booking-facade { min-height: 400px; padding: 36px 24px; }
+.booking-facade-title { font-size: 1.375rem; }
+.booking-foot { padding: 10px 20px; }
