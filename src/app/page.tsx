@@ -4,7 +4,8 @@ import { FaqList } from "@/components/FaqList";
 import { Icon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { Stats } from "@/components/Stats";
-import { CoordinationDiagram, DeviceShowcase, ServiceVisual } from "@/components/Visuals";
+import Image from "next/image";
+import { CoordinationDiagram, ServiceVisual } from "@/components/Visuals";
 import { generalFaqs, lifeMoments, processSteps, services } from "@/lib/content";
 import { buildMetadata, faqSchema, webPageSchema } from "@/lib/seo";
 import { site } from "@/lib/site";
@@ -48,7 +49,17 @@ export default function HomePage() {
             </ul>
           </div>
           <div className="hero-visual">
-            <DeviceShowcase />
+            {/* Screenshot of the DeviceShowcase component (src/components/Visuals.tsx), captured at 2x.
+                One optimized image instead of ~200 live elements keeps first paint fast. */}
+            <Image
+              src="/dashboard-devices.png"
+              alt="The Financial Doctor client dashboard on a laptop and phone, showing net worth, monthly savings, a retirement projection and portfolio allocation"
+              width={2819}
+              height={1900}
+              sizes="(min-width: 1024px) 680px, 92vw"
+              loading="eager"
+              className="devices-shot"
+            />
           </div>
         </div>
       </section>

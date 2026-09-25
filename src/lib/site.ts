@@ -19,7 +19,11 @@ export const site = {
     name: "Your Name", // TODO
     firstName: "Your", // TODO
     jobTitle: "Founder and Principal Advisor",
-    credentials: ["Licensed Mortgage Professional", "Licensed Life Insurance Advisor", "Registered Investment Representative"], // TODO: your real designations
+    credentials: [
+      "Licensed Mortgage Professional",
+      "Licensed Life Insurance Advisor",
+      "Registered Investment Representative",
+    ], // TODO: your real designations
     photo: "", // TODO: e.g. "/advisor.jpg" (place a 4:5 portrait in /public). Empty shows a monogram.
     linkedin: "https://www.linkedin.com/in/your-profile", // TODO
   },
@@ -39,7 +43,8 @@ export const site = {
     geo: { latitude: 0, longitude: 0 }, // TODO: office coordinates (improves local search)
   },
 
-  calendlyUrl: "https://calendly.com/your-handle/30min", // TODO: your Calendly event link
+  // Profile link: shows all event types. To open one event directly, append its slug (e.g. /30min).
+  calendlyUrl: "https://calendly.com/financialdoctorbyann/30min",
 
   social: [
     "https://www.linkedin.com/in/your-profile", // TODO
@@ -72,4 +77,5 @@ export const nav = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
-export const absoluteUrl = (path = "/") => `${site.url}${path === "/" ? "" : path}`;
+export const absoluteUrl = (path = "/") =>
+  `${site.url}${path === "/" ? "" : path}`;

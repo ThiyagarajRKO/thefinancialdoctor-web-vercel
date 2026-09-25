@@ -8,13 +8,16 @@ import { site } from "@/lib/site";
  * when the visitor scrolls it into view or clicks, so it never slows the first paint.
  * No Calendly widget script is used.
  */
+/** True while site.calendlyUrl is still the template placeholder. */
+const isPlaceholder = /your-handle/i.test(site.calendlyUrl);
+
 export function Calendly() {
   const ref = useRef<HTMLDivElement>(null);
   const [load, setLoad] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || load) return;
+    if (!el || load || isPlaceholder) return;
     const io = new IntersectionObserver(
       (entries) => {
         if (entries.some((e) => e.isIntersecting)) {
@@ -36,6 +39,20 @@ export function Calendly() {
     text_color: "152321",
     primary_color: "0b5d56",
   });
+
+  // Until a real Calendly link is set in src/lib/site.ts, show direct contact options instead of Calendly's 404 page.
+  if (isPlaceholder) {
+    return (
+      <div className="calendly" id="book">
+        <div className="calendly-facade">
+          <p className="calendly-facade-title">Book your free consultation</p>
+          <p>Online booking is coming soon. Call or email and we will find a time that suits you.</p>
+          <a className="btn btn-primary" href={`tel:${site.contact.phoneHref}`}>Call {site.contact.phone}</a>
+          <a className="link-arrow" href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="calendly" ref={ref} id="book">
