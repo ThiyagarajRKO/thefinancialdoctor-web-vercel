@@ -575,6 +575,28 @@ body:has(.hero-light) .mobile-panel a:not(.btn) { color: var(--text); }
 .hero-actions { margin-top: 32px; }
 .hero-assure { margin-top: 24px; }
 
+/* Mobile: every hero section (home + inner pages) centers horizontally */
+@media (max-width: 1023px) {
+  .hero-copy,
+  .page-hero .container,
+  .page-hero-grid,
+  .contact-hero-grid {
+    justify-items: center;
+    text-align: center;
+  }
+  .hero h1, .page-hero h1,
+  .hero .lede, .page-hero .lede,
+  .hero .kicker, .page-hero .kicker {
+    max-width: 100%;
+    margin-inline: auto;
+  }
+  .hero-actions, .page-hero .hero-actions,
+  .hero-assure, .page-hero .hero-assure {
+    justify-content: center;
+    margin-inline: auto;
+  }
+}
+
 /* ---------- Typography roles, section by section ----------
  * Plus Jakarta Sans 600  headlines: page h1s, CTA headline, logo
  * Manrope                titles: section titles, card, step and chart titles, advisor quote
